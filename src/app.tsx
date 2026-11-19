@@ -31,5 +31,13 @@ export function createApp(config: RigConfig = loadConfig()) {
     );
   });
 
+  app.get('/api/digest/:night', (c) => {
+    const night = c.req.param('night');
+    const digest = readNight(config.runsDir, night);
+    if (digest === null) return c.notFound();
+    // The same rows, in the same order, as the page: agents read this one (plan § 2b).
+    return c.json(digest);
+  });
+
   return app;
 }
