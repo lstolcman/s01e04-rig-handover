@@ -28,9 +28,5 @@ export type Digest = {
 };
 
 // A night with no file is not an error: `null` lets the routes answer 404 (§ 2a, § 2b).
-// Issue #2 implements it; until then it throws, and nothing calls it.
-export function readNight(runsDir: string, night: string): Digest | null {
-  void runsDir;
-  void night;
-  throw new Error('readNight is not implemented yet (issue #2)');
-}
+// Implemented in `read.ts` (issue #2).
+export type ReadNight = (runsDir: string, night: string) => Digest | null;
