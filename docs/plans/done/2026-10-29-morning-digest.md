@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-19
 ---
 
 # Morning digest
@@ -77,3 +78,18 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types contract | - | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 2 | Run log reader | #1 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 3 | Digest page | #1 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 4 | Digest JSON | #1 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 5 | Board links and counts | #2, #3 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 6 | Route tests | #3, #4 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 7 | Preview for review | #3 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+| 8 | Marker off the preview | #7 | opencode · deepseek-v4.1-flash · medium | 2026-11-19 |
+
+Preview: https://lstolcman.github.io/s01e04/ (site repo `lstolcman/lstolcman.github.io`, branch `gh-pages`).
