@@ -1,5 +1,7 @@
 import type { Status } from '../status.js';
 
+const MISSING = '-';
+
 export function StatusBoard({ status }: { status: Status }) {
   return (
     <>
@@ -10,7 +12,7 @@ export function StatusBoard({ status }: { status: Status }) {
           <tr><th>installed</th><td>{status.installed}</td></tr>
           <tr>
             <th>last beat</th>
-            <td>{status.lastBeat ? `${status.lastBeat.at} · pid ${status.lastBeat.pid}` : <span class="warn">none</span>}</td>
+            <td>{status.lastBeat ? `${status.lastBeat.at}  pid ${status.lastBeat.pid}` : <span class="warn">none</span>}</td>
           </tr>
         </tbody>
       </table>
@@ -19,8 +21,13 @@ export function StatusBoard({ status }: { status: Status }) {
         <p class="mute">nothing in runs/</p>
       ) : (
         <ul>
-          {status.nights.map((n) => (
-            <li>{n}</li>
+          {status.nights.map(({ night, counts }) => (
+            <li>
+              <a href={`/digest/${night}`}>{night}</a>{' '}
+              <span class="mute">
+                {counts === null ? MISSING : `${counts.ok} ok, ${counts.retry} retry, ${counts.fail} fail`}
+              </span>
+            </li>
           ))}
         </ul>
       )}
